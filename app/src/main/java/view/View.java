@@ -46,4 +46,11 @@ public interface View {
    * @param dealerIsWinner True if the dealer is the winner.
    */
   void displayGameOver(boolean dealerIsWinner);
+
+  enum GameEvent {
+    NEW_GAME,
+    HIT,
+    STAND,
+    QUIT
+  }
 }

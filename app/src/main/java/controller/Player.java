@@ -26,16 +26,16 @@ public class Player {
       view.displayGameOver(game.isDealerWinner());
     }
 
-    int input = view.getInput();
+     View.GameEvent input = view.getInput();
 
-    if (input == 'p') {
+    if (input == View.GameEvent.NEW_GAME) {
       game.newGame();
-    } else if (input == 'h') {
+    } else if (input == View.GameEvent.HIT) {
       game.hit();
-    } else if (input == 's') {
+    } else if (input == View.GameEvent.STAND) {
       game.stand();
     }
 
-    return input != 'q';
+    return input != View.GameEvent.QUIT;
   }
 }

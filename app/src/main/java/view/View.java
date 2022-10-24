@@ -15,7 +15,7 @@ public interface View {
 
    * @return the pressed character.
    */
-  int getInput();
+  GameEvent getInput();
 
   /**
    * Displays a card.

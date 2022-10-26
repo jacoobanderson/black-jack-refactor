@@ -14,16 +14,14 @@ public class Soft17Strategy implements HitStrategy {
         if (c.getValue() == Card.Value.Ace) {
           aces += 1;
         }
-
         if (score == hitLimit && aces > 0) {
           return true;
         }
       }
-
+      
       if (score < hitLimit) {
         return true;
       }
-
       return false;
     }
 }

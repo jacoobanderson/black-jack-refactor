@@ -22,4 +22,13 @@ public class RulesFactory {
   public NewGameStrategy getNewGameRule() {
     return new AmericanNewGameStrategy();
   }
+
+  /**
+   * Creates the rule to decide who wins on equal score.
+
+   * @return The rule to use.
+   */
+  public WinnerStrategy getWinningRule() {
+    return new PlayerIsWinnerStrategy();
+  }
 }

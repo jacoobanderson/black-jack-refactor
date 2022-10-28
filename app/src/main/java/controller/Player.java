@@ -1,5 +1,6 @@
 package controller;
 
+import model.CardDrawnObserver;
 import model.Game;
 import view.View;
 
@@ -7,7 +8,14 @@ import view.View;
 /**
  * Scenario controller for playing the game.
  */
-public class Player {
+public class Player implements CardDrawnObserver{
+  private Game game;
+  private View view;
+
+  Player(Game game, View view) {
+    this.game = game;
+    this.view = view;
+  }
 
   /**
    * Runs the play use case.
@@ -16,7 +24,7 @@ public class Player {
    * @param view The view to use.
    * @return True as long as the game should continue.
    */
-  public boolean play(Game game, View view) {
+  public boolean play() {
     view.displayWelcomeMessage();
 
     view.displayDealerHand(game.getDealerHand(), game.getDealerScore());

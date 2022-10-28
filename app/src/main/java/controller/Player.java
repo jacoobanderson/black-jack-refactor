@@ -15,6 +15,7 @@ public class Player implements CardDrawnObserver{
   Player(Game game, View view) {
     this.game = game;
     this.view = view;
+    game.addSubscriber(this);
   }
 
   /**

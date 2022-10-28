@@ -16,6 +16,10 @@ public class Game {
     player = new Player();
   }
 
+  public void addSubscriber(CardDrawnObserver subscriber) {
+    dealer.addSubscriber(subscriber);
+  }
+
   /**
    * Checks if the game has ended.
 

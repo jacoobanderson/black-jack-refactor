@@ -36,8 +36,8 @@ public class Dealer extends Player {
     }
   }
 
-  public void addSubscriber(CardDrawnObserver cardDrawnObserver) {
-    subscribers.add(cardDrawnObserver);
+  public void addSubscriber(CardDrawnObserver subscriber) {
+    subscribers.add(subscriber);
   }
 
   /**

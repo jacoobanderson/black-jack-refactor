@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-
 import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
@@ -30,12 +29,22 @@ public class Dealer extends Player {
     subscribers = new ArrayList<CardDrawnObserver>();
   }
 
+  /**
+   * Notifies the subscribers.
+   *
+   * @param player The kind of player.
+   */
   public void notifySubscribers(String player) {
     for (CardDrawnObserver cardDrawnObserver : subscribers) {
       cardDrawnObserver.cardDrawn(player);
     }
   }
 
+  /**
+   * Adds a subscriber.
+   *
+   * @param subscriber The new subscriber.
+   */
   public void addSubscriber(CardDrawnObserver subscriber) {
     subscribers.add(subscriber);
   }
@@ -77,7 +86,7 @@ public class Dealer extends Player {
    * @return True if the dealer is the winner, false if the player is the winner.
    */
   public boolean isDealerWinner(Player player) {
-   return winnerRule.isDealerTheWinner(calcScore(), player.calcScore(), maxScore);
+    return winnerRule.isDealerTheWinner(calcScore(), player.calcScore(), maxScore);
   }
 
   /**
@@ -97,17 +106,21 @@ public class Dealer extends Player {
    */
   public boolean stand() {
     showHand();
-
     if (deck != null) {
       while (hitRule.doHit(this) == true) {
         showAndDealCard(this, true);
       }
       return true;
     }
-    
     return false;
   }
 
+  /**
+   * Deals a card and either shows it or not.
+   *
+   * @param player The player who gets the card.
+   * @param visibility If it is to be shown or not.
+   */
   public void showAndDealCard(Player player, Boolean visibility) {
     String kindOfPlayer = player instanceof Dealer ? "Dealer" : "Player";
     Card.Mutable c = deck.getCard();

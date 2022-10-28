@@ -5,10 +5,16 @@ package view;
  */
 public class SwedishView implements View {
 
+  /**
+   * Displays dealer gets a card.
+   */
   public void displayDealerDrawsCard() {
     System.out.println("Dealern får ett nytt kort.");
   }
 
+  /**
+   * Displays player gets a card.
+   */
   public void displayPlayerDrawsCard() {
     System.out.println("Spelaren får ett nytt kort.");
   }
@@ -102,5 +108,12 @@ public class SwedishView implements View {
     }
     System.out.println("Poäng: " + score);
     System.out.println("");
+  }
+
+  /**
+   * Displays that something has gone wrong with the pause..
+   */
+  public void pauseError() {
+    System.out.println("Something has gone wrong with the pause!");
   }
 }

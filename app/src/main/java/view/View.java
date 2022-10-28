@@ -47,6 +47,9 @@ public interface View {
    */
   void displayGameOver(boolean dealerIsWinner);
 
+  /**
+   * The game events.
+   */
   enum GameEvent {
     NEW_GAME,
     HIT,
@@ -54,7 +57,18 @@ public interface View {
     QUIT
   }
 
+  /**
+   * Displays dealer gets a card.
+   */
   void displayDealerDrawsCard();
 
+  /**
+   * Displays player gets a card.
+   */
   void displayPlayerDrawsCard();
+
+  /**
+   * Displays that something has gone wrong with the pause..
+   */
+  void pauseError();
 }

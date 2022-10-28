@@ -5,10 +5,16 @@ package view;
  */
 public class EnglishView implements View {
 
+  /**
+   * Displays dealer gets a card.
+   */
   public void displayDealerDrawsCard() {
     System.out.println("The dealer gets a card.");
   }
 
+  /**
+   * Displays player gets a card.
+   */
   public void displayPlayerDrawsCard() {
     System.out.println("The player gets a card.");
   }
@@ -88,6 +94,12 @@ public class EnglishView implements View {
     } else {
       System.out.println("You Won!");
     }
+  }
 
+  /**
+   * Displays that something has gone wrong with the pause..
+   */
+  public void pauseError() {
+    System.out.println("Something has gone wrong with the pause!");
   }
 }

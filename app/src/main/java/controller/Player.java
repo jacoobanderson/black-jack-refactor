@@ -8,10 +8,16 @@ import view.View;
 /**
  * Scenario controller for playing the game.
  */
-public class Player implements CardDrawnObserver{
+public class Player implements CardDrawnObserver {
   private Game game;
   private View view;
 
+  /**
+   * The constructor.
+   *
+   * @param game The game.
+   * @param view The view.
+   */
   Player(Game game, View view) {
     this.game = game;
     this.view = view;
@@ -21,8 +27,6 @@ public class Player implements CardDrawnObserver{
   /**
    * Runs the play use case.
 
-   * @param game The game state.
-   * @param view The view to use.
    * @return True as long as the game should continue.
    */
   public boolean play() {
@@ -35,7 +39,7 @@ public class Player implements CardDrawnObserver{
       view.displayGameOver(game.isDealerWinner());
     }
 
-     View.GameEvent input = view.getInput();
+    View.GameEvent input = view.getInput();
 
     if (input == View.GameEvent.NEW_GAME) {
       game.newGame();
@@ -48,16 +52,21 @@ public class Player implements CardDrawnObserver{
     return input != View.GameEvent.QUIT;
   }
 
+  /**
+   * Pauses the game and shows the view.
+   *
+   * @param player The kind of player.
+   */
   public void cardDrawn(String player) {
     try {
-      if (player == "Dealer") {
+      if (player.equals("Dealer")) {
         view.displayDealerDrawsCard();
       } else {
         view.displayPlayerDrawsCard(); 
       }
       Thread.sleep(2000);
-    } catch (Exception e) {
-
+    } catch (InterruptedException e) {
+      view.pauseError();
     }
   }
 }

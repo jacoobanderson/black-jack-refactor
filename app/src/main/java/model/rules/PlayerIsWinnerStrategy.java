@@ -1,12 +1,19 @@
 package model.rules;
 
-public class PlayerIsWinnerStrategy implements WinnerStrategy{
+/**
+ * Handles who the winner is.
+ */
+public class PlayerIsWinnerStrategy implements WinnerStrategy {
+
+  /**
+   * Checks if the dealer is the winner or not.
+   */
   public boolean isDealerTheWinner(int dealerScore, int playerScore, int maxScore) {
     if (playerScore > maxScore) {
-        return true;
-      } else if (dealerScore > maxScore) {
-        return false;
-      }
-      return dealerScore > playerScore;
+      return true;
+    } else if (dealerScore > maxScore) {
+      return false;
+    }
+    return dealerScore > playerScore;
   }
 }

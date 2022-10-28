@@ -53,4 +53,8 @@ public interface View {
     STAND,
     QUIT
   }
+
+  void displayDealerDrawsCard();
+
+  void displayPlayerDrawsCard();
 }

@@ -5,6 +5,14 @@ package view;
  */
 public class SwedishView implements View {
 
+  public void displayDealerDrawsCard() {
+    System.out.println("Dealern får ett nytt kort.");
+  }
+
+  public void displayPlayerDrawsCard() {
+    System.out.println("Spelaren får ett nytt kort.");
+  }
+
   /**
    * Shows a welcome message.
    */

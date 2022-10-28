@@ -48,9 +48,14 @@ public class Player implements CardDrawnObserver{
     return input != View.GameEvent.QUIT;
   }
 
-  public void cardDrawn() {
+  public void cardDrawn(String player) {
     try {
-      Thread.sleep(3000);
+      if (player == "Dealer") {
+        view.displayDealerDrawsCard();
+      } else {
+        view.displayPlayerDrawsCard(); 
+      }
+      Thread.sleep(2000);
     } catch (Exception e) {
 
     }

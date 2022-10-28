@@ -5,6 +5,14 @@ package view;
  */
 public class EnglishView implements View {
 
+  public void displayDealerDrawsCard() {
+    System.out.println("The dealer gets a card.");
+  }
+
+  public void displayPlayerDrawsCard() {
+    System.out.println("The player gets a card.");
+  }
+
   /**
    * Shows a welcome message.
    */

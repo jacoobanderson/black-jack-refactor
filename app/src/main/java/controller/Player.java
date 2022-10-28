@@ -47,4 +47,12 @@ public class Player implements CardDrawnObserver{
 
     return input != View.GameEvent.QUIT;
   }
+
+  public void cardDrawn() {
+    try {
+      Thread.sleep(3000);
+    } catch (Exception e) {
+
+    }
+  }
 }

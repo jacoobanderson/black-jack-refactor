@@ -30,9 +30,9 @@ public class Dealer extends Player {
     subscribers = new ArrayList<CardDrawnObserver>();
   }
 
-  public void notifySubscribers() {
+  public void notifySubscribers(String player) {
     for (CardDrawnObserver cardDrawnObserver : subscribers) {
-      cardDrawnObserver.cardDrawn();
+      cardDrawnObserver.cardDrawn(player);
     }
   }
 
@@ -109,8 +109,10 @@ public class Dealer extends Player {
   }
 
   public void showAndDealCard(Player player, Boolean visibility) {
+    String kindOfPlayer = player instanceof Dealer ? "Dealer" : "Player";
     Card.Mutable c = deck.getCard();
     c.show(visibility);
     player.dealCard(c);
+    notifySubscribers(kindOfPlayer);
   }
 }

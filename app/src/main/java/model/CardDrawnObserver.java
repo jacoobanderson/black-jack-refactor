@@ -1,5 +1,5 @@
 package model;
 
 public interface CardDrawnObserver {
-  void cardDrawn();
+  void cardDrawn(String player);
 }

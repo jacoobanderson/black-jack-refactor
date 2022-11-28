@@ -122,8 +122,9 @@ public class Dealer extends Player {
    * @param visibility If it is to be shown or not.
    */
   public void showAndDealCard(Player player, Boolean visibility) {
-    String kindOfPlayer = player instanceof Dealer ? "Dealer" : "Player";
+    String kindOfPlayer = player.equals(this) ? "Dealer" : "Player";
     Card.Mutable c = deck.getCard();
+
     c.show(visibility);
     player.dealCard(c);
     notifySubscribers(kindOfPlayer);
